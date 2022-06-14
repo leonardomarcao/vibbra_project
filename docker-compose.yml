@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  web:
+    build: .
+    command:
+      - flask db init
+      - flask db migrate
+      - flask db upgrade
+      - flask init
+    env_file:
+      - ./.flaskenv
+    volumes:
+      - ./app:/code/app
+      - ./mounts/db:/var/lib/postgresql/data
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+
+  database:
+    image: postgres:latest
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: vibbra
+      APP_DB_USER: admin
+      APP_DB_PASS: admin
+      APP_DB_NAME: vibbra
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - "5405:5432"

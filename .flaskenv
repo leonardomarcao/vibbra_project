@@ -1,0 +1,8 @@
+FLASK_ENV=development
+FLASK_APP=app.app:create_app
+SECRET_KEY=de3dfcd9108342509255556406e23ca7
+DB_USER=admin
+DB_PASSWORD=admin
+DB_HOST=database
+DB_PORT=5432
+DB_NAME=vibbra
