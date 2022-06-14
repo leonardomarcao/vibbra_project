@@ -59,6 +59,112 @@
 					"response": []
 				},
 				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/users/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"username\": \"admin edited\",\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create User",
 					"request": {
 						"auth": {
@@ -118,7 +224,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"legal_name\": \"MARCIO LTDA\",\n    \"commercial_name\": \"MARCIOS\",\n    \"cnpj\": \"26945\"\n}",
+							"raw": "{\n    \"legal_name\": \"PAULO LTDA\",\n    \"commercial_name\": \"PAULOS\",\n    \"cnpj\": \"26945\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -134,6 +240,75 @@
 								"api",
 								"v1",
 								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/customers/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"legal_name\": \"PAULO LTDA EDITED\",\n    \"commercial_name\": \"PAULOS\",\n    \"cnpj\": \"5468\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/customers/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								""
 							]
 						}
 					},
@@ -289,6 +464,60 @@
 					"response": []
 				},
 				{
+					"name": "Edit Revenue Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"combustível edited\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/revenues-categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"revenues-categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Revenues",
 					"event": [
 						{
@@ -325,7 +554,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/revenues/?revenue_id=1",
+							"raw": "{{url}}/api/v1/revenues/",
 							"host": [
 								"{{url}}"
 							],
@@ -334,12 +563,6 @@
 								"v1",
 								"revenues",
 								""
-							],
-							"query": [
-								{
-									"key": "revenue_id",
-									"value": "1"
-								}
 							]
 						}
 					},
@@ -396,7 +619,90 @@
 					"response": []
 				},
 				{
-					"name": "Delete revenue",
+					"name": "Delete Revenue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/revenues/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"revenues",
+								"1"
+							],
+							"query": [
+								{
+									"key": "revenue_id",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Revenue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 10.22,\n    \"accrual_date\": \"2022-08-11\",\n    \"transaction_date\": \"2022-08-11\",\n    \"description\": \"Pastel de feira edited\",\n    \"category_id\": 1,\n    \"customer_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/revenues/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"revenues",
+								"1"
+							],
+							"query": [
+								{
+									"key": "revenue_id",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Revenue Category",
 					"request": {
 						"auth": {
 							"type": "bearer",
